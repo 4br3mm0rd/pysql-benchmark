@@ -29,8 +29,7 @@ class Benchmark(BenchmarkBase):
         for _ in range(self.NUM_QUERIES):
             data = f"Sample data {random.randint(1, 1000)}"
             cursor.execute(self.insert_query, (data,))
-
-        connection.commit()
+            connection.commit()
         end_time = time.time()
 
         cursor.close()
@@ -63,7 +62,7 @@ class Benchmark(BenchmarkBase):
         for i in range(1, self.NUM_QUERIES + 1):
             new_data = f"Updated data {random.randint(1, 1000)}"
             cursor.execute(self.update_query, (new_data, i))
-        connection.commit()
+            connection.commit()
         end_time = time.time()
 
         cursor.close()
@@ -78,8 +77,7 @@ class Benchmark(BenchmarkBase):
 
         for i in range(1, self.NUM_QUERIES + 1):
             cursor.execute(self.delete_query)
-
-        connection.commit()
+            connection.commit()
         end_time = time.time()
 
         cursor.close()
